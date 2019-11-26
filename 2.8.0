@@ -1,0 +1,6 @@
++ jquery@1.9.1
++ date-fns@2.1.0
++ typescript@3.7.2
+added 2 packages from 2 contributors, updated 1 package and audited 908421 packages in 56.222s
+found 2 vulnerabilities (1 moderate, 1 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
