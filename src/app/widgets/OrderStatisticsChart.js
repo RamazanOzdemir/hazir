@@ -22,7 +22,7 @@ export default function OrderStatisticsChart() {
 
   const data = useMemo(
     () => ({
-      labels: ["1 Jan", "2 Jan", "3 Jan", "4 Jan", "5 Jan", "6 Jan", "7 Jan"],
+      labels: ["1st Week", "2st Week", "3st Week", "4 Week"],
       datasets: [
         {
           fill: true,
@@ -53,7 +53,7 @@ export default function OrderStatisticsChart() {
             .alpha(0.1)
             .rgbString(),
 
-          data: [20, 40, 50, 25, 35, 60, 30]
+          data: [75, 120, 65, 135]
         },
         {
           fill: true,
@@ -83,7 +83,7 @@ export default function OrderStatisticsChart() {
             .alpha(0.1)
             .rgbString(),
 
-          data: [25, 45, 55, 30, 40, 65, 35]
+          data: [75, 120, 65, 135]
         }
       ]
     }),
@@ -141,8 +141,8 @@ export default function OrderStatisticsChart() {
                 zeroLineBorderDash: [3, 4]
               },
               ticks: {
-                max: 70,
-                stepSize: 10,
+                max: 160,
+                stepSize: 20,
                 display: true,
                 beginAtZero: true,
                 fontColor: shape3Color,
@@ -194,18 +194,18 @@ export default function OrderStatisticsChart() {
       <div className="kt-widget12__content">
         <div className="kt-widget12__item">
           <div className="kt-widget12__info">
-            <span className="kt-widget12__desc">Annual Taxes EMS</span>
+            <span className="kt-widget12__desc">ATotal Revenue</span>
             <span className="kt-widget12__value">$400,000</span>
           </div>
           <div className="kt-widget12__info">
             <span className="kt-widget12__desc">Finance Review Date</span>
-            <span className="kt-widget12__value">July 24,2019</span>
+            <span className="kt-widget12__value">December,2019</span>
           </div>
         </div>
         <div className="kt-widget12__item">
           <div className="kt-widget12__info">
             <span className="kt-widget12__desc">Avarage Revenue</span>
-            <span className="kt-widget12__value">$60M</span>
+            <span className="kt-widget12__value">$100M</span>
           </div>
           <div className="kt-widget12__info">
             <span className="kt-widget12__desc">Revenue Margin</span>

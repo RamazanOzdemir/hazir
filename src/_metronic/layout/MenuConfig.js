@@ -3,7 +3,7 @@ export default {
     self: {},
     items: [
       {
-        title: "Dashboards",
+        title: "*****",
         root: true,
         alignment: "left",
         page: "dashboard",
@@ -502,369 +502,42 @@ export default {
   aside: {
     self: {},
     items: [
-      {
-        title: "Dashboard",
-        root: true,
-        icon: "flaticon2-architecture-and-city",
-        page: "dashboard",
-        translate: "MENU.DASHBOARD",
-        bullet: "dot"
-      },
-      {
-        title: "Layout Builder",
-        root: true,
-        icon: "flaticon2-expand",
-        page: "builder"
-      },
-      { section: "Components" },
-      {
-        title: "Material UI",
-        root: true,
+       {
+        title: 'Dashboard',
+        page: 'dashboard',
+        icon: 'flaticon-home'
+       },
+       {
+        title: "Products",
+       
         bullet: "dot",
-        icon: "flaticon2-browser-2",
+        icon: "flaticon-symbol",
         submenu: [
           {
-            title: "Layout",
+            title: "Add Product",
+            page: 'addProduct',
             bullet: "dot",
-            submenu: [
-              {
-                title: "Box",
-                page: "google-material/layout/box"
-              },
-              {
-                title: "Container",
-                page: "google-material/layout/container"
-              },
-              {
-                title: "Grid",
-                page: "google-material/layout/grid"
-              },
-              {
-                title: "Grid list",
-                page: "google-material/layout/grid-list"
-              },
-              {
-                title: "Hidden",
-                page: "google-material/layout/hidden"
-              }
-            ]
           },
           {
-            title: "Inputs",
-            bullet: "dot",
-            submenu: [
-              {
-                title: "Autocomplete",
-                page: "google-material/inputs/autocomplete",
-                permission: "accessToECommerceModule"
-              },
-              {
-                title: "Buttons",
-                page: "google-material/inputs/buttons"
-              },
-              {
-                title: "Checkboxes",
-                page: "google-material/inputs/checkboxes"
-              },
-              {
-                title: "Pickers",
-                page: "google-material/inputs/pickers"
-              },
-              {
-                title: "Radio Buttons",
-                page: "google-material/inputs/radio-buttons"
-              },
-              {
-                title: "Selects",
-                page: "google-material/inputs/selects"
-              },
-              {
-                title: "Switches",
-                page: "google-material/inputs/switches"
-              },
-              {
-                title: "Text Fields",
-                page: "google-material/inputs/text-fields"
-              },
-              {
-                title: "Transfer List",
-                page: "google-material/inputs/transfer-list"
-              }
-            ]
+            title: "Add Product Portion",
+            page: 'addProductPortion',
+            bullet: "dot",  
           },
           {
-            title: "Navigation",
+            title: "Add Product Portion Price",
             bullet: "dot",
-            submenu: [
-              {
-                title: "Bottom Navigation",
-                page: "google-material/navigation/bottom-navigation"
-              },
-              {
-                title: "Breadcrumbs",
-                page: "google-material/navigation/breadcrumbs"
-              },
-              {
-                title: "Drawers",
-                page: "google-material/navigation/drawer"
-              },
-              {
-                title: "Links",
-                page: "google-material/navigation/links"
-              },
-              {
-                title: "Menus",
-                page: "google-material/navigation/menus"
-              },
-              {
-                title: "Steppers",
-                page: "google-material/navigation/steppers"
-              },
-              {
-                title: "Tabs",
-                page: "google-material/navigation/tabs"
-              }
-            ]
           },
           {
-            title: "Surfaces",
+            title: "Batch Price Change",
             bullet: "dot",
-            submenu: [
-              {
-                title: "App Bar",
-                page: "google-material/surfaces/app-bar"
-              },
-              {
-                title: "Paper",
-                page: "google-material/surfaces/paper"
-              },
-              {
-                title: "Cards",
-                page: "google-material/surfaces/cards"
-              },
-              {
-                title: "Expansion Panels",
-                page: "google-material/surfaces/expansion-panels"
-              }
-            ]
           },
           {
-            title: "Feedback",
+            title: "Batch Product Add",
             bullet: "dot",
-            submenu: [
-              {
-                title: "Progress",
-                page: "google-material/feedback/progress"
-              },
-              {
-                title: "Dialogs",
-                page: "google-material/feedback/dialogs"
-              },
-              {
-                title: "Snackbars",
-                page: "google-material/feedback/snackbars"
-              }
-            ]
           },
-          {
-            title: "Data Display",
-            bullet: "dot",
-            submenu: [
-              {
-                title: "Avatars",
-                page: "google-material/data-displays/avatars"
-              },
-              {
-                title: "Badges",
-                page: "google-material/data-displays/badges"
-              },
-              {
-                title: "Chips",
-                page: "google-material/data-displays/chips"
-              },
-              {
-                title: "Dividers",
-                page: "google-material/data-displays/dividers"
-              },
-              {
-                title: "Icons",
-                page: "google-material/data-displays/icons"
-              },
-              {
-                title: "Lists",
-                page: "google-material/data-displays/lists"
-              },
-              {
-                title: "Tables",
-                page: "google-material/data-displays/tables"
-              },
-              {
-                title: "Tooltips",
-                page: "google-material/data-displays/tooltips"
-              },
-              {
-                title: "Typography",
-                page: "google-material/data-displays/typography"
-              }
-            ]
-          },
-          {
-            title: "Utils",
-            bullet: "dot",
-            submenu: [
-              {
-                title: "Click Away Listener",
-                page: "google-material/utils/click-away-listener"
-              },
-              {
-                title: "Modal",
-                page: "google-material/utils/modal"
-              },
-              {
-                title: "No SSR",
-                page: "google-material/utils/no-ssr"
-              },
-              {
-                title: "Popover",
-                page: "google-material/utils/popover"
-              },
-              {
-                title: "Popper",
-                page: "google-material/utils/popper"
-              },
-              {
-                title: "Portal",
-                page: "google-material/utils/portal"
-              },
-              {
-                title: "Transitions",
-                page: "google-material/utils/transitions"
-              },
-              {
-                title: "useMediaQuery",
-                page: "google-material/utils/use-media-query"
-              }
-            ]
-          }
         ]
       },
-      {
-        title: "Bootstrap",
-        root: true,
-        bullet: "dot",
-        icon: "flaticon2-digital-marketing",
-        submenu: [
-          {
-            title: "Alerts",
-            page: "react-bootstrap/alert"
-          },
-          {
-            title: "Accordion",
-            page: "react-bootstrap/accordion"
-          },
-          {
-            title: "Badge",
-            page: "react-bootstrap/badge"
-          },
-          {
-            title: "Breadcrumb",
-            page: "react-bootstrap/breadcrumb"
-          },
-          {
-            title: "Buttons",
-            page: "react-bootstrap/buttons"
-          },
-          {
-            title: "Button Group",
-            page: "react-bootstrap/button-group"
-          },
-          {
-            title: "Cards",
-            page: "react-bootstrap/cards"
-          },
-          {
-            title: "Carousel",
-            page: "react-bootstrap/carousel"
-          },
-          {
-            title: "Dropdowns",
-            page: "react-bootstrap/dropdowns"
-          },
-          {
-            title: "Forms",
-            page: "react-bootstrap/forms"
-          },
-          {
-            title: "Input Group",
-            page: "react-bootstrap/input-group"
-          },
-          {
-            title: "Images",
-            page: "react-bootstrap/images"
-          },
-          {
-            title: "Figures",
-            page: "react-bootstrap/figures"
-          },
-          {
-            title: "Jumbotron",
-            page: "react-bootstrap/jumbotron"
-          },
-          {
-            title: "List group",
-            page: "react-bootstrap/list-group"
-          },
-          {
-            title: "Modal",
-            page: "react-bootstrap/modal"
-          },
-          {
-            title: "Navs",
-            page: "react-bootstrap/navs"
-          },
-          {
-            title: "Navbar",
-            page: "react-bootstrap/navbar"
-          },
-          {
-            title: "Overlays",
-            page: "react-bootstrap/overlays"
-          },
-          {
-            title: "Pagination",
-            page: "react-bootstrap/pagination"
-          },
-          {
-            title: "Popovers",
-            page: "react-bootstrap/popovers"
-          },
-          {
-            title: "Progress",
-            page: "react-bootstrap/progress"
-          },
-          {
-            title: "Spinners",
-            page: "react-bootstrap/spinners"
-          },
-          {
-            title: "Table",
-            page: "react-bootstrap/table"
-          },
-          {
-            title: "Tabs",
-            page: "react-bootstrap/tabs"
-          },
-          {
-            title: "Tooltips",
-            page: "react-bootstrap/tooltips"
-          },
-          {
-            title: "Toasts",
-            page: "react-bootstrap/toasts"
-          }
-        ]
-      },
-      { section: "Custom" },
+      
       // {
       //   root: true,
       //   title: "Documentation",
@@ -880,37 +553,174 @@ export default {
       //   ]
       // },
       {
-        title: "Error Pages",
-        root: true,
-        bullet: "dot",
-        icon: "flaticon-danger",
+        title: "Menus",
+        bullet: "line",
+        icon: "flaticon-menu-2",
         submenu: [
           {
-            title: "Error Page - 1",
+            title: "Add Menu",
+            bullet: "line",
             page: "error/error-v1"
           },
           {
-            title: "Error Page - 2",
+            title: "Add Menu Category",
+            bullet: "line",
             page: "error/error-v2"
           },
           {
-            title: "Error Page - 3",
+            title: "Select Product for Menu Category",
+            bullet: "line",
             page: "error/error-v3"
           },
-          {
-            title: "Error Page - 4",
-            page: "error/error-v4"
-          },
-          {
-            title: "Error Page - 5",
-            page: "error/error-v5"
-          },
-          {
-            title: "Error Page - 6",
-            page: "error/error-v6"
-          }
         ]
-      }
+      },
+      {
+        title: "Users",
+        //root: true,
+        bullet: "dot",
+        icon: "flaticon-users",
+        submenu: [
+          {
+            title: "Add SambaPOS User Group",
+            bullet: "dot",
+          },
+          {
+            title: "Add SambaPOS User Group Authority",
+            bullet: "dot",  
+          },
+          {
+            title: "Add SambaPOS User",
+            bullet: "dot",
+          },
+          {
+            title: "Add Neptune User Group",
+            bullet: "dot",
+          },
+          {
+            title: "Add Neptune User Group Authorit",
+            bullet: "dot",
+          },
+          {
+            title: "Add Neptune User",
+            bullet: "dot",
+          },
+        ]
+      },
+      {
+        title: "Tickets",
+        //root: true,
+        bullet: "dot",
+        icon: "flaticon-coins",
+        submenu: [
+          {
+            title: "Add Order Tag",
+            bullet: "dot",
+          },
+          {
+            title: "Add Ticket Tag",
+            bullet: "dot",  
+          },
+          {
+            title: "Add Price Tag",
+            bullet: "dot",
+          },
+        ]
+      },
+      {
+        title: "Entities",
+        //root: true,
+        bullet: "dot",
+        icon: "flaticon-graphic",
+        submenu: [
+          {
+            title: "Add Entity Screen",
+            bullet: "dot",
+          },
+          {
+            title: "Add Entity",
+            bullet: "dot",  
+          },
+        ]
+      },
+      {
+        title: "Ordering System",
+        icon: "flaticon-order",
+        bullet: "dot",
+        submenu: [
+          {
+            title: "Order List",
+            bullet: "dot",
+          },
+          {
+            title: "Add Order",
+            bullet: "dot",
+          },
+        ]
+      },
+      {
+        title: "Branches",
+        //root: true,
+        bullet: "dot",
+        icon: "flaticon-users",
+        submenu: [
+          {
+            title: "Add Branch",
+            bullet: "dot",
+          },
+          {
+            title: "Branch Tag",
+            bullet: "dot",  
+          },
+        ]
+      },
+      {
+        title: "Inventory",
+        //root: true,
+        bullet: "dot",
+        icon: "flaticon-users",
+        submenu: [
+          {
+            title: "Track Inventories",
+            bullet: "dot",
+          },
+          {
+            title: "Add Inventory Product",
+            bullet: "dot",  
+          },
+          {
+            title: "Add Receipt",
+            bullet: "dot",
+          },
+          {
+            title: "Add Inventory",
+            bullet: "dot",
+          },
+        ]
+      },
+      {
+        title: "Send Updates",
+        //root: true,
+        bullet: "dot",
+        icon: "flaticon-users",
+        submenu: [
+          {
+            title: "Send Data to Branches",
+            bullet: "dot",
+          },
+        ]
+      },
+      {
+        title: "Settings",
+        //root: true,
+        bullet: "dot",
+        icon: "flaticon-settings",
+        submenu: [
+          {
+            title: "Shared Entity Select",
+            bullet: "dot",
+          },
+        ]
+      },
     ]
   }
 };

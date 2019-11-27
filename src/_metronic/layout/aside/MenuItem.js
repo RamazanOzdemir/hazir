@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import MenuItemText from "./MenuItemText";
 import MenuSubmenu from "./MenuSubmenu";
 import clsx from "clsx";
+import {connect} from "react-redux";
+import {changePage} from "../../ducks/my_reducer";
 
-export default class MenuItem extends React.Component {
+class MenuItem extends React.Component {
   asideLeftLIRef = React.createRef();
   isDropdown =  document.body.classList.contains("kt-aside-menu--dropdown");
-
+   
   submenuToggle =
     this.props.item.toggle === "click"
       ? "click"
@@ -72,7 +74,7 @@ export default class MenuItem extends React.Component {
   };
 
   render() {
-    const { item, currentUrl, parentItem, layoutConfig } = this.props;
+    const { item, currentUrl, parentItem, layoutConfig,changePage } = this.props;
     const isActive = this.isMenuItemIsActive(item);
 
     return (
@@ -97,8 +99,8 @@ export default class MenuItem extends React.Component {
         data-ktmenu-dropdown-toggle-class={item["dropdown-toggle-class"]}
       >
         {!item.submenu && (
-          <Link to={`/${item.page}`} className="kt-menu__link kt-menu__toggle">
-            <MenuItemText item={item} parentItem={parentItem} />
+          <Link to={`/${item.page}`} className="kt-menu__link kt-menu__toggle" onClick={()=>{changePage(item.page)}}>
+            <MenuItemText item={item} parentItem={parentItem}  />
           </Link>
         )}
 
@@ -137,3 +139,12 @@ export default class MenuItem extends React.Component {
     );
   }
 }
+const mapStateToProps = state =>{
+  console.log(state);
+  return {}
+}
+const mapDispatchToProps = dispatch =>({
+  changePage : str => dispatch(changePage(str))
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(MenuItem);

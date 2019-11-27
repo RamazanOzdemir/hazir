@@ -9,6 +9,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { LastLocationProvider } from "react-router-last-location";
 import { Routes } from "./app/router/Routes";
 import { I18nProvider, LayoutSplashScreen, ThemeProvider } from "./_metronic";
+import MenuContextProvider from "./_metronic/my_context/MenuContext"
 
 export default function App({ store, Layout, persistor, basename }) {
   const ref = React.createRef();
@@ -27,8 +28,10 @@ export default function App({ store, Layout, persistor, basename }) {
               <ThemeProvider>
                 {/* Provide `react-intl` context synchronized with Redux state.  */}
                 <I18nProvider>
-                  {/* Render routes with provided `Layout`. */}
-                  <Routes Layout={Layout} ref={ref}/>
+                  <MenuContextProvider>
+                    {/* Render routes with provided `Layout`. */}
+                    <Routes Layout={Layout} ref={ref}/>
+                  </MenuContextProvider>
                 </I18nProvider>
               </ThemeProvider>
             </LastLocationProvider>

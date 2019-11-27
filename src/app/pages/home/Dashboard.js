@@ -15,8 +15,10 @@ import DownloadFiles from "../../widgets/DownloadFiles";
 import NewUsers from "../../widgets/NewUsers";
 import LatestUpdates from "../../widgets/LatestUpdates";
 import BestSellers from "../../widgets/BestSellers";
+import AuthorsProfit from "../../widgets/AuthorsProfit";
 import RecentActivities from "../../widgets/RecentActivities";
 import PortletHeaderDropdown from "../../partials/content/CustomDropdowns/PortletHeaderDropdown";
+import Simple_chart from "../../my_widgets/Simple_chart";
 
 export default function Dashboard() {
   const { brandColor, dangerColor, successColor, primaryColor } = useSelector(
@@ -43,7 +45,7 @@ export default function Dashboard() {
   const chartOptions = useMemo(
     () => ({
       chart1: {
-        data: [10, 14, 18, 11, 9, 12, 14, 17, 18, 14],
+        data: [1,2,1,1,1,1,,1,,1,1,1,,1,1,1,1,1,1,,1,1,1,1,1,,1],
         color: brandColor,
         border: 3
       },
@@ -73,8 +75,31 @@ export default function Dashboard() {
     <>
       <div className="row">
         <div className="col-xl-6">
+          <Simple_chart title='Branch Count' number={50} color='warning' />
+        </div>
+        <div className="col-xl-6">
+          <Simple_chart title='Active Branches' number={33} color='danger'/>
+        </div>
+
+        <div className="col-xl-6">
+          <Portlet fluidHeight={true}>
+            <PortletHeader
+              title="Total Revenue Chart"
+            />
+
+            <PortletBody>
+              <OrderStatisticsChart />
+            </PortletBody>
+          </Portlet>
+        </div>
+
+
+        <div className="col-xl-6">
           <div className="row row-full-height">
             <div className="col-sm-12 col-md-12 col-lg-6">
+             
+        
+
               <Portlet className="kt-portlet--height-fluid-half kt-portlet--border-bottom-brand">
                 <PortletBody fluid={true}>
                   <QuickStatsChart
@@ -132,22 +157,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="col-xl-6">
-          <Portlet fluidHeight={true}>
-            <PortletHeader
-              title="Order Statistics"
-              toolbar={
-                <PortletHeaderToolbar>
-                  <PortletHeaderDropdown />
-                </PortletHeaderToolbar>
-              }
-            />
-
-            <PortletBody>
-              <OrderStatisticsChart />
-            </PortletBody>
-          </Portlet>
-        </div>
+  
       </div>
 
       <Portlet>

@@ -11,8 +11,8 @@ export default function AuthPage() {
   return (
     <>
       {/* https://github.com/nfl/react-helmet */}
-      <Helmet>
-        {/* <link
+     {/* <Helmet>
+         <link
             type="text/css"
             rel="stylesheet"
             href={toAbsoluteUrl(
@@ -25,8 +25,8 @@ export default function AuthPage() {
           href={toAbsoluteUrl(
             "/assets/css/demo1/pages/login/login-1.css"
           )}
-        /> */}
-      </Helmet>
+        /> 
+      </Helmet>*/}
 
       <div className="kt-grid kt-grid--ver kt-grid--root">
         <div
@@ -34,13 +34,13 @@ export default function AuthPage() {
           className="kt-grid kt-grid--hor kt-grid--root kt-login kt-login--v1"
         >
           <div className="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
-            <div
+        {/*     <div
               className="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside"
               style={{
                 backgroundImage: `url(${toAbsoluteUrl("/media/bg/bg-4.jpg")})`
               }}
             >
-              <div className="kt-grid__item">
+             <div className="kt-grid__item">
                 <Link to="/" className="kt-login__logo">
                   <img
                     alt="Logo"
@@ -56,7 +56,7 @@ export default function AuthPage() {
                     next generation web apps.
                   </h4>
                 </div>
-              </div>
+            </div>
               <div className="kt-grid__item">
                 <div className="kt-login__info">
                   <div className="kt-login__copyright">
@@ -75,18 +75,17 @@ export default function AuthPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div>*/}
 
             <div className="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper">
               <Switch>
-                <Redirect from="/auth" exact={true} to="/auth/login" />
-
-                <Route path="/auth/login" component={Login} />
                 <Route path="/auth/registration" component={Registration} />
                 <Route
                   path="/auth/forgot-password"
                   component={ForgotPassword}
                 />
+                <Route path="/auth" component={Login} />
+        
               </Switch>
             </div>
           </div>

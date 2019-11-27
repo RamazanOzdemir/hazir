@@ -115,19 +115,7 @@ class HMenu extends React.Component {
             ref={this.ktMenuCommonRef}
           >
             <ul className={`kt-menu__nav ${ulClasses}`}>
-              {items.map((item, index) => {
-                return (
-                  <React.Fragment key={`hmenuList${index}`}>
-                    {item.title && (
-                      <HMenuItem
-                        item={item}
-                        currentUrl={this.currentUrl}
-                        rootArrowEnabled={rootArrowEnabled}
-                      />
-                    )}
-                  </React.Fragment>
-                );
-              })}
+              
             </ul>
           </div>
         </div>

@@ -180,7 +180,7 @@ function Login(props) {
             )}
           </Formik>
 
-          <div className="kt-login__divider">
+        {/*  <div className="kt-login__divider">
             <div className="kt-divider">
               <span />
               <span>OR</span>
@@ -201,7 +201,7 @@ function Login(props) {
               <i className="fab fa-google" />
               Google
             </Link>
-          </div>
+          </div>*/}
         </div>
       </div>
     </>

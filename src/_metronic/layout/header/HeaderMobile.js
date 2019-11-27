@@ -26,7 +26,7 @@ class HeaderMobile extends React.Component {
       >
         <div className="kt-header-mobile__logo">
           <Link to="/">
-            <img alt="logo" src={headerLogo} />
+          <img alt="logo" src='/media/my_logo/sambalogo2.png' height='25px' width='auto' />
           </Link>
         </div>
 
@@ -39,16 +39,6 @@ class HeaderMobile extends React.Component {
               <span />
             </button>
           )}
-
-          {headerMenuSelfDisplay && (
-            <button
-              className="kt-header-mobile__toggler"
-              id="kt_header_mobile_toggler"
-            >
-              <span />
-            </button>
-          )}
-
           <button
             ref={this.toggleButtonRef}
             className="kt-header-mobile__topbar-toggler"

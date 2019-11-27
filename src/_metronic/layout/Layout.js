@@ -71,17 +71,15 @@ function Layout({
             {/* <!-- begin:: Content --> */}
             <div
               id="kt_content"
-              className={`kt-content ${contentCssClasses} kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor`}
+              className={`kt-content ${contentCssClasses} kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor`} 
             >
               {/* <!-- begin:: Content Head --> */}
-              {subheaderDisplay && (
-                <SubHeader htmlClassService={htmlClassService} />
-              )}
+          
               {/* <!-- end:: Content Head --> */}
 
               {/* <!-- begin:: Content Body --> */}
               {/* TODO: add class to animate  kt-grid--animateContent-finished */}
-              <KtContent>{children}</KtContent>
+              <KtContent >{children}</KtContent>
               {/*<!-- end:: Content Body -->*/}
             </div>
             {/* <!-- end:: Content --> */}

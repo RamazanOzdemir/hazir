@@ -7,7 +7,8 @@ import { metronic } from "../../_metronic";
 export const rootReducer = combineReducers({
   auth: auth.reducer,
   i18n: metronic.i18n.reducer,
-  builder: metronic.builder.reducer
+  builder: metronic.builder.reducer,
+  menuSelect: metronic.my_reducer.reducer
 });
 
 export function* rootSaga() {
