@@ -1,10 +1,10 @@
 import React from 'react'
+import MyTable from '../components/MyTable';
+
 
 const AddProductPortion = () => {
     return (
-        <div>
-            <h1>>Add Product Portion</h1>
-        </div>
+        <MyTable porletName={"Add Product Portion"} nameList={["Name","Multiplier"]} idList={["name","multiplier"]} />
     )
 }
 

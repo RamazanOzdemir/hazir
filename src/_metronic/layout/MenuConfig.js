@@ -563,19 +563,16 @@ export default {
             title: "Add Menu",
             page: "menus/add-menu",
             bullet: "line",
-            page: "error/error-v1"
           },
           {
             title: "Add Menu Category",
             page: "menus/add-menu-category",
             bullet: "line",
-            page: "error/error-v2"
           },
           {
             title: "Select Product for Menu Category",
             page: "menus/select-product-for-menu-category",
             bullet: "line",
-            page: "error/error-v3"
           },
         ]
       },

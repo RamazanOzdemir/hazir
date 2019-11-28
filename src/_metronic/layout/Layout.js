@@ -60,6 +60,7 @@ function Layout({
           )}
           {/* <!-- end:: Aside Left --> */}
           <div
+            
             className="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper"
             id="kt_wrapper"
           >
@@ -71,6 +72,7 @@ function Layout({
             {/* <!-- begin:: Content --> */}
             <div
               id="kt_content"
+              
               className={`kt-content ${contentCssClasses} kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor`} 
             >
               {/* <!-- begin:: Content Head --> */}
@@ -79,7 +81,9 @@ function Layout({
 
               {/* <!-- begin:: Content Body --> */}
               {/* TODO: add class to animate  kt-grid--animateContent-finished */}
-              <KtContent >{children}</KtContent>
+              <KtContent >
+                {children}
+                </KtContent>
               {/*<!-- end:: Content Body -->*/}
             </div>
             {/* <!-- end:: Content --> */}

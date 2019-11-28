@@ -140,7 +140,6 @@ class MenuItem extends React.Component {
   }
 }
 const mapStateToProps = state =>{
-  console.table(state);
   return {}
 }
 

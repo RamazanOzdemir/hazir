@@ -151,6 +151,7 @@ class AsideLeft extends React.Component {
       <>
         <div
           id="kt_aside_menu"
+          
           ref={this.asideMenuRef}
           style={{ maxHeight: "90vh", position: "relative" }}
           onMouseEnter={this.mouseEnter}
@@ -166,11 +167,12 @@ class AsideLeft extends React.Component {
               </Link>
             </div>
           )}
-          <ul className={clsx("kt-menu__nav", ulClasses)}>
+          <ul className={clsx("kt-menu__nav", ulClasses)} >
             <MenuList
               currentUrl={pathname}
               menuConfig={menuConfig}
               layoutConfig={layoutConfig}
+              
             />
           </ul>
         </div>

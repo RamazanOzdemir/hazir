@@ -21,7 +21,7 @@ function KtContent({ children, location, contentContainerClasses }) {
   return transitions.map(({ key, props: style }) => (
     <animated.div
       key={key}
-      style={style}
+      style={{...style,top:'0px'}}
       className={`kt-container ${contentContainerClasses} kt-grid__item kt-grid__item--fluid`}
     >
       {children}

@@ -16,9 +16,10 @@ class AsideLeft extends React.Component {
       this.props.menuCanvasOptions
     );
   }
-
+  
+  
   render() {
-
+   
     return (
       <>
         <button className="kt-aside-close" id="kt_aside_close_btn">
@@ -27,12 +28,14 @@ class AsideLeft extends React.Component {
         <div
           id="kt_aside"
           ref={this.asideOffCanvasRef}
+          style={{overflow:'hidden'}}
           className={`kt-aside ${this.props.asideClassesFromConfig} kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop`}
         >
           <Brand />
           <div
             id="kt_aside_menu_wrapper"
             className="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid"
+            style={{position:'fixed',top:'30px',width:'260px'}}
           >
             {this.props.disableScroll && (
               <Menu htmlClassService={this.props.htmlClassService} />

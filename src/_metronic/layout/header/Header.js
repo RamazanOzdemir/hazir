@@ -29,6 +29,7 @@ class Header extends React.Component {
     const headerAttributes = htmlClassService.attributes.header;
     return (
       <div
+      
         className={`kt-header kt-grid__item ${this.props.headerClasses}`}
         id="kt_header"
         ref={this.headerCommonRef}
