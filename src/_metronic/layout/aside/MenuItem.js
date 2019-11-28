@@ -5,7 +5,7 @@ import MenuItemText from "./MenuItemText";
 import MenuSubmenu from "./MenuSubmenu";
 import clsx from "clsx";
 import {connect} from "react-redux";
-import {changePage} from "../../ducks/my_reducer";
+import { metronic } from "../../../_metronic";
 
 class MenuItem extends React.Component {
   asideLeftLIRef = React.createRef();
@@ -140,11 +140,9 @@ class MenuItem extends React.Component {
   }
 }
 const mapStateToProps = state =>{
-  console.log(state);
+  console.table(state);
   return {}
 }
-const mapDispatchToProps = dispatch =>({
-  changePage : str => dispatch(changePage(str))
-})
 
-export default connect(mapStateToProps,mapDispatchToProps)(MenuItem);
+
+export default connect(mapStateToProps,metronic.my_reducer.actions)(MenuItem);

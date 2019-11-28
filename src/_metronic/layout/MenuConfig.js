@@ -509,30 +509,32 @@ export default {
        },
        {
         title: "Products",
-       
         bullet: "dot",
         icon: "flaticon-symbol",
         submenu: [
           {
             title: "Add Product",
-            page: 'addProduct',
+            page: 'product/add-product',
             bullet: "dot",
           },
           {
             title: "Add Product Portion",
-            page: 'addProductPortion',
+            page: 'product/add-roduct-portion',
             bullet: "dot",  
           },
           {
             title: "Add Product Portion Price",
+            page: "product/add-product-portion-price",
             bullet: "dot",
           },
           {
             title: "Batch Price Change",
+            page: "product/batch-price-change",
             bullet: "dot",
           },
           {
             title: "Batch Product Add",
+            page: "product/batch-product-add",
             bullet: "dot",
           },
         ]
@@ -559,16 +561,19 @@ export default {
         submenu: [
           {
             title: "Add Menu",
+            page: "menus/add-menu",
             bullet: "line",
             page: "error/error-v1"
           },
           {
             title: "Add Menu Category",
+            page: "menus/add-menu-category",
             bullet: "line",
             page: "error/error-v2"
           },
           {
             title: "Select Product for Menu Category",
+            page: "menus/select-product-for-menu-category",
             bullet: "line",
             page: "error/error-v3"
           },
@@ -582,26 +587,32 @@ export default {
         submenu: [
           {
             title: "Add SambaPOS User Group",
+            page: "add-sambaPOS-user-group",
             bullet: "dot",
           },
           {
             title: "Add SambaPOS User Group Authority",
+            page: "add-sambaPOS-user-group-authority",
             bullet: "dot",  
           },
           {
             title: "Add SambaPOS User",
+            page: "add-sambaPOS-user",
             bullet: "dot",
           },
           {
             title: "Add Neptune User Group",
+            page: "add-neptune-user-group",
             bullet: "dot",
           },
           {
             title: "Add Neptune User Group Authorit",
+            page: "add-neptune-user-group-authority",
             bullet: "dot",
           },
           {
             title: "Add Neptune User",
+            page: "add-neptune-user",
             bullet: "dot",
           },
         ]
@@ -614,14 +625,17 @@ export default {
         submenu: [
           {
             title: "Add Order Tag",
+            page: "add-order-tag",
             bullet: "dot",
           },
           {
             title: "Add Ticket Tag",
+            page: "add-ticket-tag",
             bullet: "dot",  
           },
           {
             title: "Add Price Tag",
+            page: "add-price-tag",
             bullet: "dot",
           },
         ]
@@ -634,10 +648,12 @@ export default {
         submenu: [
           {
             title: "Add Entity Screen",
+            page: "add-entity-screen",
             bullet: "dot",
           },
           {
             title: "Add Entity",
+            page: "add-entity",
             bullet: "dot",  
           },
         ]
@@ -649,10 +665,12 @@ export default {
         submenu: [
           {
             title: "Order List",
+            page: "order-list",
             bullet: "dot",
           },
           {
             title: "Add Order",
+            page: "add-order",
             bullet: "dot",
           },
         ]
@@ -665,10 +683,12 @@ export default {
         submenu: [
           {
             title: "Add Branch",
+            page: "add-branch",
             bullet: "dot",
           },
           {
             title: "Branch Tag",
+            page: "branch-tag",
             bullet: "dot",  
           },
         ]

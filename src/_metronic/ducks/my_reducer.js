@@ -1,16 +1,10 @@
 
-const change = (page)=>({
-    type :  "CHANGE PAGE",
-    page : page
-});
-
-
-export const changePage = (page)=> dispatch =>{
-    dispatch(change(page));
-};
 
 
 
+export const actions = {
+    changePage: page => ({ type: "CHANGE PAGE", payload: { page } })
+  };
 
 
 
@@ -24,9 +18,10 @@ const initialState = {
 export const reducer = (state=initialState,action) =>{
     switch(action.type){
         case 'CHANGE PAGE':
+            console.log(action.payload)
             return {
                 ...state,
-                curentPage:action.page
+                curentPage:action.payload
             }
         default:
             return state
