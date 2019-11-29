@@ -35,7 +35,7 @@ class AsideLeft extends React.Component {
           <div
             id="kt_aside_menu_wrapper"
             className="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid"
-            style={{position:'fixed',top:'30px',width:'260px'}}
+            style={{position:'fixe',to:'50px',widt:'260px'}}
           >
             {this.props.disableScroll && (
               <Menu htmlClassService={this.props.htmlClassService} />
