@@ -8,8 +8,9 @@ const AddProduct = () => {
         <MyTable 
         porletName={"Add Product"}
         nameList={["Group Code","Barcode","Tag","Name"]} 
-        idList={["groupCode","barcode","tag","name"]}
-        dbList={[]}
+        idList={["GroupCode","Barcode","Tag","Name"]}
+        tableName = 'MenuItems'
+        option={{}}
         />
     )
 }
