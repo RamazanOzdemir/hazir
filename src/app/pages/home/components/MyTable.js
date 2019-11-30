@@ -20,24 +20,33 @@ const handleChange = (setData,data,e)=>{
 
 const deleteItem = (items,setItem,index)=>{
     setItem(items.filter((item,indx)=>indx !== index));
-}
+};
 
 const handleSubmit = ()=>{
-  console.log('ilklerin günahı olmaz');
-  const instance = axios.create(
-    {baseURL:'http://localhost:4000/api/',
-    timeout:20000,
-    headers:{"Content-Type":"application/json","Accept":"application/json"}})
+  //const instance = axios.create({
+  //  baseURL: 'http://167.71.169.236/api/',
+  //  timeout: 1000,
+  //  headers: {'X-Custom-Header': 'foobar'}
+  //});
+  //
+//
+  //  instance.post('', {table:"MenuItems"})
+  //  .then(res=>console.log(res))
+  //  .catch(err=>console.log(err));
 
-    fetch('http://167.71.169.236/api/', {method:'GET',data:{body:{"table":"MenuItems","Id":1, "GroupCode":"group", "Barcode":"sadaGSM44", "Tag":"yemek", "CustomTags":"", "ItemType":1, "Name":"ilk yemek"}}}).then(function(response) {
-      // handle HTTP response
-      console.log(response)
-    }, function(error) {
-      // handle network error
-      console.log(error)
-    })
+    fetch('http://167.71.169.236/api/',{
+      method:'POST',
+      body:JSON.stringify({table:"MenuItems",ItemType:1}),
+      headers: {'Content-Type': 'application/json'}
+    }).then(res=>res.json())
+    .then(re=>console.log(re))
+    .catch(err=>console.log(err));
+    
+};        
 
-}
+
+
+      
 
 const MyTable = (props) => {
     const {porletName,nameList,idList,dbList} = props
