@@ -6,29 +6,49 @@ import DocsPage from "./docs/DocsPage";
 import { LayoutSplashScreen } from "../../../_metronic";
 import Product from "./products/Product";
 import Menu from "./menus/Menu";
+import AddProduct from "./products/AddProduct";
+import AddProductPortion from "./products/AddProductPortion";
+import AddProductPortionPrice from "./products/AddProductPortionPrice";
+import BatchPriceChange from "./products/BatchPriceChange";
+import BatchProductAdd from "./products/BatchProductAdd";
 
-const GoogleMaterialPage = lazy(() =>
-  import("./google-material/GoogleMaterialPage")
-);
-const ReactBootstrapPage = lazy(() =>
-  import("./react-bootstrap/ReactBootstrapPage")
-);
+//const GoogleMaterialPage = lazy(() =>
+//  import("./google-material/GoogleMaterialPage")
+//);
+//const ReactBootstrapPage = lazy(() =>
+//  import("./react-bootstrap/ReactBootstrapPage")
+//);
 
 export default function HomePage() {
   return (
     <Suspense fallback={<LayoutSplashScreen />}>
       <Switch>
         {
-          /* Redirect from root URL to /dashboard. */
+          /* Redirect from root URL to /dashboard.*/ 
           <Redirect exact from="/" to="/dashboard" />
         }
-        <Route path="/builder" component={Builder} />
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/google-material" component={GoogleMaterialPage} />
-        <Route path="/product" component={Product} />
-        <Route path="/menus" component={Menu} />
-        <Route path="/react-bootstrap" component={ReactBootstrapPage} />
-        <Route path="/docs" component={DocsPage} />
+        <Route path="/menus/" component={Menu} />
+        <Route exact
+          path="/product/add-product" 
+          component={AddProduct} 
+        />
+        <Route 
+          path="/product/add-roduct-portion" 
+          component={AddProductPortion} 
+        />
+        <Route 
+          path="/product/add-product-portion-price" 
+          component={AddProductPortionPrice} 
+        />
+        <Route 
+          path="/product/batch-price-change" 
+          component={BatchPriceChange} 
+        />
+        <Route 
+          path="/product/batch-product-add" 
+          component={BatchProductAdd} 
+        />
         <Redirect to="/error/error-v1" />
       </Switch>
     </Suspense>

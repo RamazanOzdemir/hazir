@@ -55,16 +55,16 @@ export default [
   },
   {
     id: 3,
-    username: "guest",
+    username: "jesse",
     password: "demo",
-    email: "guest@demo.com",
+    email: "jesse@demo.com",
     accessToken: "access-token-d2dff7b82f784de584b60964abbe45b9",
     refreshToken: "access-token-c999ccfe74aa40d0aa1a64c5e620c1a5",
     roles: [3], // Guest
-    pic: toAbsoluteUrl("/media/users/default.jpg"),
-    fullname: "Ginobili Maccari",
+    pic: toAbsoluteUrl("/media/users/photo_jesse.jpg"),
+    fullname: "Jesse Parker",
     occupation: "CFO",
-    companyName: "Keenthemes",
+    companyName: "SambaPOS",
     phone: "456669067892",
     address: {
       addressLine: "1467  Griffin Street",

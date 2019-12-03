@@ -657,7 +657,7 @@ export default {
       },
       {
         title: "Ordering System",
-        icon: "flaticon-order",
+        icon: "flaticon-graphic",
         bullet: "dot",
         submenu: [
           {
@@ -676,7 +676,7 @@ export default {
         title: "Branches",
         //root: true,
         bullet: "dot",
-        icon: "flaticon-users",
+        icon: "flaticon-map",
         submenu: [
           {
             title: "Add Branch",
@@ -694,7 +694,7 @@ export default {
         title: "Inventory",
         //root: true,
         bullet: "dot",
-        icon: "flaticon-users",
+        icon: "flaticon-computer",
         submenu: [
           {
             title: "Track Inventories",
@@ -718,7 +718,7 @@ export default {
         title: "Send Updates",
         //root: true,
         bullet: "dot",
-        icon: "flaticon-users",
+        icon: "flaticon-presentation-1",
         submenu: [
           {
             title: "Send Data to Branches",
@@ -730,7 +730,7 @@ export default {
         title: "Settings",
         //root: true,
         bullet: "dot",
-        icon: "flaticon-settings",
+        icon: "flaticon-cogwheel",
         submenu: [
           {
             title: "Shared Entity Select",

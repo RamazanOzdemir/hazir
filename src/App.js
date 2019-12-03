@@ -10,6 +10,7 @@ import { LastLocationProvider } from "react-router-last-location";
 import { Routes } from "./app/router/Routes";
 import { I18nProvider, LayoutSplashScreen, ThemeProvider } from "./_metronic";
 import MenuContextProvider from "./_metronic/my_context/MenuContext"
+import ProductContextProvider from "./_metronic/my_context/ProductContext"
 
 export default function App({ store, Layout, persistor, basename }) {
   const ref = React.createRef();
@@ -29,8 +30,10 @@ export default function App({ store, Layout, persistor, basename }) {
                 {/* Provide `react-intl` context synchronized with Redux state.  */}
                 <I18nProvider>
                   <MenuContextProvider>
+                    <ProductContextProvider>
                     {/* Render routes with provided `Layout`. */}
                     <Routes Layout={Layout} ref={ref}/>
+                    </ProductContextProvider>
                   </MenuContextProvider>
                 </I18nProvider>
               </ThemeProvider>

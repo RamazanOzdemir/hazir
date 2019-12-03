@@ -2,8 +2,9 @@ import React, { useEffect, useMemo, useRef } from "react";
 import { useSelector } from "react-redux";
 import { Chart } from "chart.js";
 import { metronic } from "../../_metronic";
+import { formatDistanceToNow } from "date-fns";
 
-export default function SalesBarChart({ title, desc }) {
+export default function SalesBarChart({ title, desc ,dailySales}) {
   const ref = useRef();
   const { successColor } = useSelector(state => ({
     successColor: metronic.builder.selectors.getConfig(
@@ -11,42 +12,82 @@ export default function SalesBarChart({ title, desc }) {
       "colors.state.success"
     )
   }));
+  const day_length = dailySales.length;
+  if(day_length<10){
+    for(let i=0; i<10-day_length; i++)
+      dailySales.push(null);
+  }
+  console.log(dailySales);
+  let dates = [];
+  dailySales.forEach(element => {
+    if(element)
+      dates.push(element.date);
+    else
+      dates.push(element);
+  });
+  
 
-  const data = useMemo(
-    () => ({
-      labels: [
-        "Label 1",
-        "Label 2",
-        "Label 3",
-        "Label 4",
-        "Label 5",
-        "Label 6",
-        "Label 7",
-        "Label 8",
-        "Label 9",
-        "Label 10",
-        "Label 11",
-        "Label 12",
-        "Label 13",
-        "Label 14",
-        "Label 15",
-        "Label 16"
-      ],
+
+  Date.prototype.getMonthName = function(lang) {
+      lang = lang && (lang in Date.locale) ? lang : 'en';
+      return Date.locale[lang].month_names[this.getMonth()];
+  };
+
+  Date.prototype.getMonthNameShort = function(lang) {
+      lang = lang && (lang in Date.locale) ? lang : 'en';
+      return Date.locale[lang].month_names_short[this.getMonth()];
+  };
+
+  Date.locale = {
+      en: {
+         month_names: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+         month_names_short: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      }
+  };
+  
+  const data = {
+      labels:dates.map(date=>{
+        if(date){
+          let d = new Date(d);
+          return `${d.getMonthName()} ${d.getDate()}`; 
+        }
+        else
+          return '';
+
+      }),
+      labels: dailySales.map(d=>{
+        if(d!==null){
+        let dd = new Date(d.date);
+        return `${dd.getMonthName()} ${dd.getDate()}`
+        }
+        else
+         return "";
+      }),
       datasets: [
         {
           // label: 'dataset 1',
           backgroundColor: successColor,
-          data: [15, 20, 25, 30, 25, 20, 15, 20, 25, 30, 25, 20, 15, 10, 15, 20]
+          data: dailySales.map(d=>{
+            if(d!==null){
+            return d.total
+            }
+            else
+             return 0;
+          })
         },
         {
           // label: 'dataset 2',
           backgroundColor: "#f3f3fb",
-          data: [15, 20, 25, 30, 25, 20, 15, 20, 25, 30, 25, 20, 15, 10, 15, 20]
+          data: dailySales.map(d=>{
+            if(d!==null){
+            return d.total
+            }
+            else
+             return 0;
+          })
         }
       ]
-    }),
-    [successColor]
-  );
+    };
 
   useEffect(() => {
     const chart = new Chart(ref.current, {

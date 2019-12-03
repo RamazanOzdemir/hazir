@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import objectPath from "object-path";
-import HMenuItem from "./HMenuItem";
+//import HMenuItem from "./HMenuItem";
 import * as builder from "../../../ducks/builder";
 import { toAbsoluteUrl } from "../../..";
 import KTMenu from "../../../_assets/js/menu";
@@ -85,9 +85,9 @@ class HMenu extends React.Component {
       disabledAsideSelfDisplay,
       ktMenuClasses,
       ulClasses,
-      rootArrowEnabled
+      //rootArrowEnabled
     } = this.props;
-    const items = this.props.menuConfig.header.items;
+    //const items = this.props.menuConfig.header.items;
     return (
       <>
         <button
