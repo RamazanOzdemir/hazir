@@ -14,10 +14,6 @@ const MenuContextProvider = (props) =>{
           .then(re=>stateSet(re))
           .catch(err=>console.log(err));
     } 
-    useEffect(()=>{
-        getAllItems("ScreenMenuItems",setScreenMenuItems);
-        getAllItems("ScreenMenuCategories",setscreenMenuCategories);
-    },[setScreenMenuItems,setscreenMenuCategories]);
     
     return (
         <MenuContext.Provider value={{screenMenuItems,screenMenuCategories}}>

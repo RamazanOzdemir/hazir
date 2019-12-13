@@ -11,6 +11,8 @@ import AddProductPortion from "./products/AddProductPortion";
 import AddProductPortionPrice from "./products/AddProductPortionPrice";
 import BatchPriceChange from "./products/BatchPriceChange";
 import BatchProductAdd from "./products/BatchProductAdd";
+import Product2 from "./products2/Product2";
+import Product3 from "./products3/Product3";
 
 //const GoogleMaterialPage = lazy(() =>
 //  import("./google-material/GoogleMaterialPage")
@@ -29,6 +31,8 @@ export default function HomePage() {
         }
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/menus/" component={Menu} />
+        <Route path="/product2/" component={Product2} />
+        <Route path="/product3/" component={Product3} />
         <Route exact
           path="/product/add-product" 
           component={AddProduct} 

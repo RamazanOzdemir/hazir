@@ -51,6 +51,9 @@
     "css-mediaquery": "^0.1.2",
     "date-fns": "^2.1.0",
     "dentist": "^1.0.3",
+    "devextreme": "19.2.4",
+    "devextreme-react": "19.2.4",
+    "devextreme-themebuilder": "19.2-stable",
     "downshift": "^3.3.5",
     "fg-loadcss": "^2.1.0",
     "formik": "^1.5.8",
@@ -89,9 +92,12 @@
   },
   "devDependencies": {
     "copyfiles": "^2.1.1",
+    "css-loader": "^3.3.2",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
     "serve": "^11.2.0",
+    "style-loader": "^1.0.1",
+    "url-loader": "^3.0.0",
     "webpack-cli": "^3.3.9",
     "webpack-messages": "^2.0.4",
     "webpack-rtl-plugin": "^2.0.0"

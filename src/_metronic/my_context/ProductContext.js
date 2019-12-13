@@ -7,11 +7,13 @@ const ProductContextProvider = (props) =>{
     const [menuItems,setMenuItems] = useState([]);
     const [menuItemPortion,setMenuItemPortion] = useState([]);
     const [MenuItemPrices,setMenuItemPrices] = useState([]);
+    const [selectedItems,setSelectedItems] = useState([]);
     const [dailySales,setDailySales] = useState([]);
     const [bestSallers,setBestSallers] = useState([]);
     const [allList,setAllList] = useState([]);
     const [screenMenuItems,setScreenMenuItems] = useState([]);
     const [screenMenuCategories,setscreenMenuCategories] = useState([]);
+
 
     const deleteDbItem = (table,id)=>{
         fetch(`http://167.71.169.236/api/menu/${id}`,{
@@ -19,30 +21,60 @@ const ProductContextProvider = (props) =>{
             body:JSON.stringify({table:table}),
             headers: {'Content-Type': 'application/json'}
           }).then(res=>res.json())
-          .then(re=>getAllList())
+          .then(re=>{
+            if(table==="MenuItems"){
+              const portions = menuItemPortion.filter(por=>por.MenuItemId === id)
+              portions.forEach(item=>{
+                deleteDbItem("MenuItemPortions",item.Id)
+                const prices = MenuItemPrices.filter(pri=>pri.MenuItemPortionId===item.Id);
+                prices.forEach(pri=>deleteDbItem("MenuIyemPrices",pri.Id));
+              })
+            }
+            else if(table === "MenuItemPortions"){
+              const prices = MenuItemPrices.filter(pri=>pri.MenuItemPortionId===id);
+              prices.forEach(pri=>deleteDbItem("MenuIyemPrices",pri.Id));
+            }
+            getAllList()
+          })
+          .catch(err=>console.log(err));  
+    };
+    const updateItem = (table,body,id)=>{
+        fetch(`http://167.71.169.236/api/menu/${id}`,{
+            method:'PUT',
+            body:JSON.stringify({table:table,item:body}),
+            headers: {'Content-Type': 'application/json'}
+          }).then(res=>res.json())
+          .then(re=>{
+            if(table==="MenuItems"){
+              const portions = body.portions;
+              portions.forEach(item=>{
+                updateItem("MenuItemPortions",item,item.Id)
+                const prices = [{Price:item.Price,MenuItemPortionId:item.Id,Id:item.Price_Id}];
+                prices.forEach(pri=>updateItem("MenuItemPrices",pri,pri.Id));
+              })
+            }
+            getAllList()
+          })
           .catch(err=>console.log(err));  
     };
 
-    useEffect(()=>{
-        fetch(`http://167.71.169.236/api/daily`,{
-            method:'GET',
-            headers: {'Content-Type': 'application/json'}
-          }).then(res=>res.json())
-          .then(re=>setDailySales(re))
-          .catch(err=>console.log(err)); 
-
-          fetch(`http://167.71.169.236/api/bestSeller`,{
-            method:'GET',
-            headers: {'Content-Type': 'application/json'}
-          }).then(res=>res.json())
-          .then(re=>setBestSallers(re))
-          .catch(err=>console.log(err)); 
-
-    },[]);
+   useEffect(()=>{
+      // fetch(`http://167.71.169.236/api/daily`,{
+      //     method:'GET',
+      //     headers: {'Content-Type': 'application/json'}
+      //   }).then(res=>res.json())
+      //   .then(re=>setDailySales(re))
+      //   .catch(err=>console.log(err)); 
+      //   fetch(`http://167.71.169.236/api/bestSeller`,{
+      //     method:'GET',
+      //     headers: {'Content-Type': 'application/json'}
+      //   }).then(res=>res.json())
+      //   .then(re=>setBestSallers(re))
+      //   .catch(err=>console.log(err)); 
+      getAllList();
+   },[getAllList]);
     const addItem = (tableName,list)=>{
         const body = {table:tableName} 
-        let query = {};
-       
         list.forEach(element => {
             for (var property in element) {
                 if (element.hasOwnProperty(property) === undefined) {
@@ -56,12 +88,21 @@ const ProductContextProvider = (props) =>{
                 headers: {'Content-Type': 'application/json'}
               }).then(res=>res.json())
               .then(re=>{
-                  
+                  const id = re.recordset[0]["ID"];
+                  if(tableName === "MenuItems"&&element.portions !== undefined){
+                    element.portions.forEach(portion=>{
+                      addItem("MenuItemPortions",[{...portion,MenuItemId:id,prices:{Price: portion.Price}}]);
+                    });
+                  }
+                  else if(tableName === "MenuItemPortions"&&element.prices !== undefined)
+                    addItem('MenuItemPrices',[{...element.prices,MenuItemPortionId:id}]);
                   getAllList();
+                  
+                 
               } )
               .catch(err=>console.log(err));   
+            
         });
-        
     }
     const getAllItems = (tableName,stateSet) =>{ 
         fetch(`http://167.71.169.236/api/menu/${tableName}`,{
@@ -75,13 +116,14 @@ const ProductContextProvider = (props) =>{
         getAllItems('MenuItems',setMenuItems);
         getAllItems('MenuItemPortions',setMenuItemPortion);
         getAllItems('MenuItemPrices',setMenuItemPrices);
-        getAllItems("ScreenMenuItems",setScreenMenuItems);
-        getAllItems("ScreenMenuCategories",setscreenMenuCategories);
+        //getAllItems("ScreenMenuItems",setScreenMenuItems);
+        //getAllItems("ScreenMenuCategories",setscreenMenuCategories);
     
     };
     return (
         <ProductContext.Provider 
-        value={{bestSallers,
+        value={{
+        bestSallers,
         dailySales,
         getAllList,
          menuItems,
@@ -91,7 +133,11 @@ const ProductContextProvider = (props) =>{
          addItem,
          deleteDbItem,
          screenMenuItems,
-         screenMenuCategories}}
+         screenMenuCategories,
+         selectedItems,
+         setSelectedItems,
+         updateItem
+        }}
          >
             {props.children}
         </ProductContext.Provider>
