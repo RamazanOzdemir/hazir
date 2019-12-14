@@ -13,24 +13,18 @@ import DataGrid, {
   } from "devextreme-react/data-grid";
 import { ProductContext } from '../../../../_metronic/my_context/ProductContext';
 import { customers } from './Data.js';
-const data = [{
-    arg: 1990,
-    val: 5320816667
-}, {
-    arg: 2000,
-    val: 6127700428
-}, {
-    arg: 2010,
-    val: 6916183482
-}];
+
 const AddMenu = () => {
     const {menuItems} = useContext(ProductContext);
-    const Json_menuItems = JSON.stringify(menuItems);
+    const Json_menuItems = JSON.stringify(menuItems[0]===null?[{}]:menuItems);
     const columns = ["Name","GroupCode","Barcode","Tag"];
     console.log(Json_menuItems);
+    console.log(customers);
+    console.log( menuItems[0]);
     return (
+        menuItems[0]?
          <DataGrid 
-            dataSource= {customers}
+            dataSource= {menuItems}
             allowColumnReordering={true}
             showBorders = {true}
         >
@@ -48,7 +42,7 @@ const AddMenu = () => {
             />
             <Column dataField="Tag" />
         </DataGrid>
-     
+        :<h1>Loading...</h1>
     )
 }
 

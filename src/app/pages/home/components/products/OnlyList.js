@@ -7,7 +7,21 @@ import  {Formik} from "formik";
 import GroupCode from './GroupCode';
 import ProductTable from './ProductTable';
 import { maxHeight } from '@material-ui/system';
-
+import 'devextreme/dist/css/dx.common.css';
+import 'devextreme/dist/css/dx.light.css';
+import PivotGridDataSource from 'devextreme/ui/pivot_grid/data_source';
+import $ from "jquery";
+import DataGrid, {
+    Column,
+    Grouping,
+    GroupPanel,
+    Pager,
+    Paging,
+    SearchPanel,
+    FilterRow,
+    HeaderFilter
+  } from "devextreme-react/data-grid";
+import { isConditionalExpression } from 'typescript';
 
 const OnlyList = (props) => {
     const {porletName,nameList,idList,tableName,options,db,initialValues} = props
@@ -114,30 +128,61 @@ const OnlyList = (props) => {
       if(groups.every(g=>g!==item.GroupCode))
         groups.push(item.GroupCode);
     });
+    const onSelectionChanged = ({selectedRowsData})=>{
+      console.log(selectedRowsData,"selected rows data");
+    };
+    const handleOptionChanged = (e) => {
+      const {name,fullName,value,previousValue} = e;
+      if(fullName.indexOf("groupIndex")!==-1){
+        console.log($("#cl").dxList(Column));
+      }
+        
+
+    }
     return (
         <Portlet className='border ' style={{overflow:"auto",height:"84vh"}}>
             <PortletHeader title={porletName} />
                 <PortletBody className='border' style={{height:"85vh",overflow:"auto"}}>
-                    {
-                        groups.map(prod=>(
-                            <>
-                              <GroupCode ref={ref} name={prod}>
-                                  <ProductTable
-                                    nameList={nameList}
-                                    db={db}
-                                    idList={idList}
-                                    groupCode={prod}
-                                  />
-                              </GroupCode>
-                                
+                  <DataGrid 
+                      
+                      dataSource= {menuItems}
+                      selection={{ mode: 'single' }}
+                      allowColumnReordering={true}
+                      onOptionChanged={handleOptionChanged.bind(this)}
+                      showBorders = {true}                      
+                      hoverStateEnabled={true}
+                      keyExpr="Id"
+                      id = "cl"
+                      onSelectionChanged={onSelectionChanged}
 
-
-                            </>
-                        ))
-                    }
-
-
-                    
+                    >
+                      <GroupPanel visible={true} 
+                        
+                      />
+                      <SearchPanel visible={true} highlightCaseSensitive={false} />
+                      <FilterRow visible={true} />
+                      <HeaderFilter visible={true}  />
+                      <Grouping autoExpandAll={true} 
+                        contextMenuEnabled ={true}
+                      />
+                      <Column dataField="Name" className="cl"/>
+                      <Column dataField="GroupCode" 
+                          groupIndex={0}
+                          sortIndex = {-1}
+                          sortOrder = "dcs"
+                          className="cl"
+                          
+                          showInColumnChooser = {s=>alert(s)}
+                          
+                      />
+                      <Column dataField="Barcode"
+                      className="cl"
+                      onSelectionChanged={((e)=>alert(e))}
+                      />
+                      <Column dataField="Tag" 
+                      
+                      className="cl"/>
+                  </DataGrid> 
                 </PortletBody>
                 <Modal show={show.show} onHide={closeModal}>
                   <Modal.Header closeButton></Modal.Header>
